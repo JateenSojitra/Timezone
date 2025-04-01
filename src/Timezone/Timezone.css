@@ -1,0 +1,82 @@
+/* General container styling */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+.container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.container h5 {
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Select container */
+.select-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.select-container label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.select-container .rs-picker {
+    width: 300px;
+}
+
+/* Formatted dates section */
+.formatted-dates {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.formatted-dates h4 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #444;
+    font-size: 1.4rem;
+}
+
+.formatted-dates ul {
+    list-style-type: none;
+    padding: 0;
+    line-height: 1.8;
+    color: #555;
+}
+
+.formatted-dates ul li {
+    margin: 5px 0;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .select-container .rs-picker {
+        width: 100%;
+    }
+
+    .formatted-dates {
+        padding: 15px;
+    }
+}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SelectPickerRsuite from './SelectPickerRsuite';
-
+import './Timezone.css';
 const Timezone = () => {
     const [timezones, setTimezones] = useState([]);
     const [timezoneValue, setTimezoneValue] = useState('Asia/Kolkata'); // Default timezone
@@ -22,7 +22,7 @@ const Timezone = () => {
         const now = new Date();
         const dateInISOString = now.toISOString()
         const date = new Date(dateInISOString)
-        
+
         let dateOption = {}
         if (status === 1) {
             // 27/02/2025
@@ -157,50 +157,52 @@ const Timezone = () => {
     // const lastmonth = now.getFullYear() + '-' + (now.getMonth() - 1) + '-' + now.
     const firstDayLastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
     const lastDayLastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-    
-    console.log("First Day of Last Month:", firstDayLastMonth); 
+
+    console.log("First Day of Last Month:", firstDayLastMonth);
     console.log("Last Day of Last Month:", lastDayLastMonth.getFullYear() + '-' + (lastDayLastMonth.getMonth() + 1) + '-' + lastDayLastMonth.getDate() + 'T23:59:59.999Z');
 
     return (
         <>
-            <h2> ** JavaScript Date Get Methods ** </h2>
-            <div style={{ marginLeft: "25px", marginTop: "20px" }}>
-                <h5> Year: {new Date().getFullYear()} </h5>
-                <h5> Month: {new Date().getMonth()} </h5>
-                <h5> Date: {new Date().getDate()} </h5>
-                <h5> Day: {new Date().getDay()} </h5>
-                <h5> Hours: {new Date().getHours()} </h5>
-                <h5> Minutes: {new Date().getMinutes()} </h5>
-                <h5> Seconds: {new Date().getSeconds()} </h5>
-            </div>
-
-            <div style={{ marginTop: "50px" }}>
-                <h2> ** Formatting Dates using Intl.DateTimeFormat() ** </h2>
-                <div style={{ marginTop: "25px", marginLeft: "25px" }}>
-                    <label htmlFor="codes">Select Timezone : </label>
-
-                    { /* dropdown for different timezone */ }
-                    <SelectPickerRsuite
-                        placeholder="Select a timezone"
-                        data={newTimeZoneData}
-                        cleanable={false}
-                        onChange={ (e) => handleChange(e)}
-                        value={timezoneValue}
-                    />
+            <div className="container">
+                <h2>** JavaScript Date Get Methods **</h2>
+                <div>
+                    <h5>Year: {new Date().getFullYear()}</h5>
+                    <h5>Month: {new Date().getMonth() + 1}</h5>
+                    <h5>Date: {new Date().getDate()}</h5>
+                    <h5>Day: {new Date().getDay()}</h5>
+                    <h5>Hours: {new Date().getHours()}</h5>
+                    <h5>Minutes: {new Date().getMinutes()}</h5>
+                    <h5>Seconds: {new Date().getSeconds()}</h5>
                 </div>
 
-                <div style={{ marginTop: "25px", marginLeft: "25px" }}>
-                    <h4>Formatted Date and Time:</h4>
-                    <p>{timezoneValue ? formatDate(timezoneValue, 1) : ""}</p>
-                    <p>{timezoneValue ? formatDate(timezoneValue, 2) : ""}</p>
-                    <p>{timezoneValue ? formatDate(timezoneValue, 3) : ""}</p>
-                    <p>{timezoneValue ? formatDate(timezoneValue, 4) : ""}</p>
-                    <p>{timezoneValue ? formatDate(timezoneValue, 5) : ""}</p>
-                    <p>{timezoneValue ? formatDate(timezoneValue, 6) : ""}</p>
-                    <p>{timezoneValue ? formatDate(timezoneValue, 7) : ""}</p>
-                    <p>{timezoneValue ? formatDate(timezoneValue, 8) : ""}</p>
-                    <p>{timezoneValue ? formatDate(timezoneValue, 9) : ""}</p>
-                    <p>{timezoneValue ? formatDate(timezoneValue, 10) : ""}</p>
+                <div>
+                    <h2>** Formatting Dates using Intl.DateTimeFormat() **</h2>
+                    <div className="select-container">
+                        <label htmlFor="codes">Select Timezone:</label>
+                        <SelectPickerRsuite
+                            placeholder="Select a timezone"
+                            data={newTimeZoneData}
+                            cleanable={false}
+                            onChange={(e) => handleChange(e)}
+                            value={timezoneValue}
+                        />
+                    </div>
+
+                    <div className="formatted-dates">
+                        <h4>Formatted Date and Time:</h4>
+                        <ul>
+                            <li>{timezoneValue ? formatDate(timezoneValue, 1) : ""}</li>
+                            <li>{timezoneValue ? formatDate(timezoneValue, 2) : ""}</li>
+                            <li>{timezoneValue ? formatDate(timezoneValue, 3) : ""}</li>
+                            <li>{timezoneValue ? formatDate(timezoneValue, 4) : ""}</li>
+                            <li>{timezoneValue ? formatDate(timezoneValue, 5) : ""}</li>
+                            <li>{timezoneValue ? formatDate(timezoneValue, 6) : ""}</li>
+                            <li>{timezoneValue ? formatDate(timezoneValue, 7) : ""}</li>
+                            <li>{timezoneValue ? formatDate(timezoneValue, 8) : ""}</li>
+                            <li>{timezoneValue ? formatDate(timezoneValue, 9) : ""}</li>
+                            <li>{timezoneValue ? formatDate(timezoneValue, 10) : ""}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </>
